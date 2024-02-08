@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+<!--            height: 100vh;-->
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+
+        p {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        p:first-child {
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        p:last-child span {
+            color: #4caf50;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ city }} in {{ year }}</h1>
+    <h2>Air Quality Prediction Result</h2>
+    <p>Ensemble Prediction:<span style="color: #4caf50;">{{ result['Ensemble Prediction'] }}</span></p>
+    <p>SO2: {{ result.get('SO2', 'Data not available') }}</p>
+    <p>PM10: {{ result.get('PM10', 'Data not available') }}</p>
+    <p>NO2: {{ result.get('NO2', 'Data not available') }}</p>
+    <img src="data:image/png;base64,{{ img_pop }}" alt="Pollutant Level Trend">
+    <h2>Population Prediction Result</h2>
+    <p>Population: {{ result.get('Population Prediction', 'Data not available') }}</p>
+    <<img src="data:image/png;base64,{{ img  }}" alt="Population Level Trend">
+</body>
+</html>
+
